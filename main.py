@@ -10,15 +10,15 @@ if not os.path.isdir(folder_path):
     Repo.clone_from('https://github.com/jfree/jfreechart.git', folder_path)
 
 
-def get_comment_density():
+def get_comment_density(): #Maggie
     pass
 
 
-def get_percent_methods_not_tested():
+def get_percent_methods_not_tested(): #Hugo
     pass
 
 
-def calculate_csec():
+def calculate_csec(): #Maggie
     pass
 
 
@@ -34,7 +34,7 @@ def mentions(path_folder: Path, file_path: Path, class_name: str):
     return False
 
 
-def calculate_test_to_code_size_ratio():
+def calculate_test_to_code_size_ratio(): #Maggie
     main_folder = folder_path + '/src/main/java/org/jfree'
     test_folder = folder_path + '/src/test/java/org/jfree'
     size_test = 0
@@ -52,8 +52,8 @@ def calculate_test_to_code_size_ratio():
 
     return size_code / size_test
 
-
-def get_number_of_commits():
+# TODO: change pour chaque module
+def get_number_of_commits(): #Hugo
     # Code from https://brianli.com/2022/07/python-get-number-of-commits-github-repository/#:~:text=As%20you%20can%20imagine%2C%20this,commits%20on%20each%20API%20call.
     owner = 'jfree'
     repo = 'jfreechart'
@@ -66,6 +66,10 @@ def get_number_of_commits():
     rel_last_link_url_page_arg = rel_last_link_url_args["page"][0]
     commits_count = int(rel_last_link_url_page_arg)
     return commits_count
+
+
+def get_lines_of_code_added_per_commit_stats(): #Hugo
+    pass
 
 
 def main():
