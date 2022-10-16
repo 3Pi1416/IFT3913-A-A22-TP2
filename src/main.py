@@ -23,35 +23,9 @@ def calculate_csec(): #Maggie
     pass
 
 
-def mentions(path_folder: Path, file_path: Path, class_name: str):
-    full_path = Path.joinpath(path_folder, file_path)
-
-    with open(full_path) as file:
-        for line in file:
-            if line[0] != '/' or line[1] != '/':
-                if class_name in line:
-                    return True
-
-    return False
-
-
 def calculate_test_to_code_size_ratio(): #Maggie
-    main_folder = folder_path + '/src/main/java/org/jfree'
-    test_folder = folder_path + '/src/test/java/org/jfree'
-    size_test = 0
-    size_code = 0
+    pass
 
-    for path, dir, files in os.walk(main_folder):
-        for f in files:
-            file_path = os.path.join(path, f)
-            size_code += os.path.getsize(file_path)
-
-    for path, dir, files in os.walk(test_folder):
-        for f in files:
-            file_path = os.path.join(path, f)
-            size_test += os.path.getsize(file_path)
-
-    return size_code / size_test
 
 # TODO: change pour chaque module
 def get_number_of_commits(): #Hugo

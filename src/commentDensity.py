@@ -57,6 +57,3 @@ def comment_density_stats(density_list: list):
     print(f"STD dev of densities: {statistics.stdev(density_list)}")
     print(f"Min density: {min(density_list)}")
     print(f"Max density: {max(density_list)}")
-
-
-comment_density()
