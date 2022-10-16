@@ -1,8 +1,9 @@
-import requests
-from urllib.parse import parse_qs, urlparse
-from git import Repo
 import os
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
+
+import requests
+from git import Repo
 
 # get latest version of jfreechart and place in same directory as the program
 folder_path = 'jfreechart'
