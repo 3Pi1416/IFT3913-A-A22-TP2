@@ -1,16 +1,24 @@
 import os
+import sys
 from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 import statistics
 
 
-def comment_density():
-    main_folder = 'jfreechart/src/main/java/org/jfree'
+def comment_density(args):
+    if len(args) != 1:
+        print("Expected one directory as input.")
+        return
+
+    main_folder = Path(args[0])
+    if not main_folder.is_dir():
+        print(f"{main_folder} is not a folder.")
+        return
     file_comment_density = []
     file_size = []
 
-    for path, dir, files in os.walk(main_folder):
+    for path, directory, files in os.walk(args[0]):
         for f in files:
             file_path = os.path.join(path, f)
             file_size.append(os.path.getsize(file_path))
@@ -47,7 +55,7 @@ def generate_density_graph(file_sizes: list, comment_densities: list):
     plt.xlabel("File size in bytes")
     plt.ylabel("Density of comments")
     plt.scatter(x_points, y_points)
-    plt.savefig("output/comment_density.png")
+    plt.savefig("comment_density.png")
 
 
 def comment_density_stats(density_list: list):
@@ -57,3 +65,7 @@ def comment_density_stats(density_list: list):
     print(f"STD dev of densities: {statistics.stdev(density_list)}")
     print(f"Min density: {min(density_list)}")
     print(f"Max density: {max(density_list)}")
+
+
+if __name__ == "__main__":
+    comment_density(sys.argv[1:])

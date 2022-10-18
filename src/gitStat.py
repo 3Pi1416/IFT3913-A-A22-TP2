@@ -13,7 +13,7 @@ from src.Commit import Commit
 
 def git_stats_command(args):
     if len(args) != 1:
-        print("Error: need one argument.")
+        print("Expected one directory as input.")
         return
 
     path_folder = Path(args[0])
