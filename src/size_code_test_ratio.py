@@ -1,9 +1,9 @@
 import os
 
 
-def calculate_test_to_code_size_ratio(folder_path):
-    main_folder = folder_path + '/src/main/java/org/jfree'
-    test_folder = folder_path + '/src/test/java/org/jfree'
+def calculate_test_to_code_size_ratio():
+    main_folder = 'jfreechart/src/main/java/org/jfree'
+    test_folder = 'jfreechart/src/test/java/org/jfree'
     size_test = 0
     size_code = 0
 
@@ -17,4 +17,8 @@ def calculate_test_to_code_size_ratio(folder_path):
             file_path = os.path.join(path, f)
             size_test += os.path.getsize(file_path)
 
-    return size_code / size_test
+    print(size_code / size_test)
+
+
+if __name__ == "__main__":
+    calculate_test_to_code_size_ratio()
