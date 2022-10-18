@@ -1,4 +1,3 @@
-import os
 import statistics
 import sys
 from pathlib import Path
@@ -36,7 +35,7 @@ def get_csec_values(file_list: list):
         a_file_path = file_list[i]
         a_class_name = a_file_path.stem
 
-        for j in range(i+1, len(file_list)):
+        for j in range(i + 1, len(file_list)):
             b_file_path = file_list[j]
             b_class_name = b_file_path.stem
 
@@ -69,4 +68,4 @@ def csec_stats(csec_values: list):
 
 
 if __name__ == "__main__":
-    csec(["/Users/maggierobert/Desktop/IFT3913/IFT3913-A-A22-TP2/src/jfreechart"])
+    csec(sys.argv[1:])
