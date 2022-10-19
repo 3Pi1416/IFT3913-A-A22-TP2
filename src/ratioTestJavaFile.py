@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-from src.JavaProjectClassEvaluation import JavaProjectClassEvaluation
+from JavaProjectClassEvaluation import JavaProjectClassEvaluation
 
 
 def ratio_test_java_files_command(args):
