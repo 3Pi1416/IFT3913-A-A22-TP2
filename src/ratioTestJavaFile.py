@@ -31,8 +31,10 @@ def ratio_test_java_files_command(args):
 
     number_of_class_not_test, number_of_interface_not_test, number_of_private_classes_not_test, number_of_abstract_classes_not_test = find_class_not_test(
         evaluation, test_files)
-    print(number_of_class_not_test, number_of_interface_not_test, number_of_private_classes_not_test,
-          number_of_abstract_classes_not_test)
+    print(f"Nombre de classes publique pas tester:{number_of_class_not_test}")
+    print(f"Nombre de interfaces pas tester:{number_of_interface_not_test}")
+    print(f"Nombre de classes privéespas tester:{number_of_private_classes_not_test}")
+    print(f"Nombre de classes abstraites pas tester:{number_of_abstract_classes_not_test}")
 
 
 def calculate_number_of_test_file(path: Path, test_files=[]):
