@@ -23,7 +23,7 @@ def file_size(path: Path, list_files_size=[]):
     for file in path.iterdir():
         if file.is_dir():
             file_size(file, list_files_size)
-        elif file.suffix.upper() != "JAVA":
+        elif file.suffix.upper() == ".JAVA":
             list_files_size.append(os.path.getsize(file))
 
     return list_files_size
@@ -34,7 +34,7 @@ def read_stats(list: List):
     print(f"average fsize: {statistics.mean(list)}")
     print(f"std dev size: {statistics.stdev(list)}")
     print(f"min size: {min(list)}")
-    print(f"min size: {max(list)}")
+    print(f"max size: {max(list)}")
 
 
 if __name__ == "__main__":
