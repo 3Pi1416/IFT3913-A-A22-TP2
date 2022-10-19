@@ -1,16 +1,19 @@
-1.	Git
+1.	Git modifications
 
 median deletions: 12.5
 median files change: 2.0
 median insertions: 6.5
-median number days from last commits: -286.0
 average deletions: 284.25
 average files change: 20.7
 average insertions: 344.65
+
+2. 	Git nombre de jours ( même programme que git modifications pour avoir l'output) 
+
+median number days from last commits: -286.0
 average number days from last commits: -231
 
 
-2.	Files size (pour main)
+3.	Files size (pour main)
 
 median size: 5626.5
 average fsize: 10596.414156626506
@@ -18,7 +21,7 @@ std dev size: 16238.042085791936
 min size: 63
 max size: 184388 
 
-3.	Nombre de test vs class
+4.	Nombre de test vs class
 Nombre de fichier test:359
 Nombre de public class:436
 Nombre de private class:6
@@ -30,20 +33,21 @@ Nombre de interfaces pas tester:113
 Nombre de classes privées pas tester:6
 Nombre de classes abstraites pas tester:18
 
-4.	CSEC (pour main)
+5.	CSEC (pour main)
 Median CSEC value: 9.0
 Average CSEC value: 16.14156626506024
 STD dev of CSEC values: 25.08984437488171
 Min CSEC value: 0
 Max CSEC value: 267
-5.	DC
+
+6.	DC
 Median density: 0.538860103626943
 Average density: 0.5703224303250753
 STD dev of densities: 0.18795286481706833
 Min density: 0.06976744186046512
 Max density: 0.9736842105263158
 
-6.	Ratio taille code / taille test
+7.	Ratio taille code / taille test
 2.8149180376397207
 
  
