@@ -12,14 +12,13 @@ average insertions: 344.65
 median number days from last commits: -286.0
 average number days from last commits: -231
 
-
-3.	Files size (pour main)
+3.	Files size en bytes (pour main)
 
 median size: 5626.5
 average fsize: 10596.414156626506
 std dev size: 16238.042085791936
 min size: 63
-max size: 184388 
+max size: 184388
 
 4.	Nombre de test vs class
 Nombre de fichier test:359
