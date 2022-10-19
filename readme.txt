@@ -17,6 +17,12 @@ Entrée: sys.argv avec le path vers le repértoire à mesurer
 Sortie: imprime dans le console les données collectées
 
 ###########################
+gitStat.py
+###########################
+Entrée: sys.argv avec le path vers le repértoire à mesurer
+Sortie: imprime dans le console les données collectées
+
+###########################
 fileSize.py
 ###########################
 Entrée: sys.argv avec le path vers le repértoire à mesurer
