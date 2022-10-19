@@ -36,10 +36,10 @@ def ratio_test_java_files_command(args):
     print(f"Nombre de classes privées pas tester:{number_of_private_classes_not_test}")
     print(f"Nombre de classes abstraites pas tester:{number_of_abstract_classes_not_test}")
 
-    print(f"ratio publique = {100*number_of_class_not_test / len(evaluation.public_classes)}")
-    print(f"ratio abstraites = {100*number_of_abstract_classes_not_test / len(evaluation.abstract_classes)}")
+    print(f"pourcentage publique = {100*number_of_class_not_test / len(evaluation.public_classes)}")
+    print(f"pourcentage abstraites = {100*number_of_abstract_classes_not_test / len(evaluation.abstract_classes)}")
     print(
-        f"ratio total = {100*(number_of_class_not_test + number_of_abstract_classes_not_test) / (len(evaluation.public_classes) + len(evaluation.abstract_classes))}")
+        f"pourcentage total = {100*(number_of_class_not_test + number_of_abstract_classes_not_test) / (len(evaluation.public_classes) + len(evaluation.abstract_classes))}")
 
 
 def calculate_number_of_test_file(path: Path, test_files=[]):
