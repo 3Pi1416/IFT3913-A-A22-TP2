@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import statistics
 
 
-def comment_density(args):
+def comment_density_command(args):
     if len(args) != 1:
         print("Expected one directory as input.")
         return
@@ -15,24 +15,28 @@ def comment_density(args):
     if not main_folder.is_dir():
         print(f"{main_folder} is not a folder.")
         return
-    file_comment_density = []
-    file_size = []
 
-    for path, directory, files in os.walk(args[0]):
-        for f in files:
-            file_path = os.path.join(path, f)
-            file_size.append(os.path.getsize(file_path))
-            file_comment_density.append(get_file_comment_density(Path(file_path)))
-
-    generate_density_graph(file_size, file_comment_density)
+    file_comment_density, list_line_comment, list_non_empty = read_comment_density_in_every_files(main_folder)
+    generate_density_graph(list_line_comment, list_non_empty)
     comment_density_stats(file_comment_density)
 
 
-def get_file_comment_density(file: Path):
-    if not file.is_file():
-        raise Exception("Not a file!")
-    if file.suffix != '.java':
-        return
+def read_comment_density_in_every_files(path: Path, file_comment_density=[], list_line_comment=[], list_non_empty=[]):
+    for file in path.iterdir():
+        if file.is_dir():
+            read_comment_density_in_every_files(file, file_comment_density, list_line_comment, list_non_empty)
+        elif file.suffix.upper() == ".JAVA":
+            num_lines_of_comments, num_non_empty_lines, density_of_comments = calculate_file_comment_density(file)
+            file_comment_density.append(density_of_comments)
+            list_line_comment.append(num_lines_of_comments)
+            list_non_empty.append(num_non_empty_lines)
+
+    return file_comment_density, list_line_comment, list_non_empty
+
+
+def calculate_file_comment_density(file: Path):
+    if not file.is_file() or file.suffix != '.java':
+        raise Exception("Not a java file!")
 
     num_non_empty_lines = 0
     num_lines_of_comments = 0
@@ -46,7 +50,7 @@ def get_file_comment_density(file: Path):
                 if stripped_line[:2] == '/*' or stripped_line[:2] == '//' or stripped_line[0] == '*':
                     num_lines_of_comments += 1
 
-    return num_lines_of_comments / num_non_empty_lines
+    return num_lines_of_comments, num_non_empty_lines, (num_lines_of_comments / num_non_empty_lines)
 
 
 def generate_density_graph(file_sizes: list, comment_densities: list):
@@ -68,4 +72,4 @@ def comment_density_stats(density_list: list):
 
 
 if __name__ == "__main__":
-    comment_density(sys.argv[1:])
+    comment_density_command(sys.argv[1:])
