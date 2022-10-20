@@ -59,6 +59,9 @@ def generate_density_graph(list_line_comment: list, list_non_empty: list):
     plt.xlabel("LOC")
     plt.ylabel("CLOC")
     plt.scatter(x_points, y_points)
+    m, b = np.polyfit(x_points, y_points, 1)
+    plt.plot(x_points, m * x_points + b, label=f'y={m:.2f}x+{b:.2f}')
+    plt.legend(fontsize=9)
     plt.savefig("comment_density.png")
 
 
