@@ -53,11 +53,11 @@ def calculate_file_comment_density(file: Path):
     return num_lines_of_comments, num_non_empty_lines, (num_lines_of_comments / num_non_empty_lines)
 
 
-def generate_density_graph(file_sizes: list, comment_densities: list):
-    x_points = np.array(file_sizes)
-    y_points = np.array(comment_densities)
-    plt.xlabel("File size in bytes")
-    plt.ylabel("Density of comments")
+def generate_density_graph(list_line_comment: list, list_non_empty: list):
+    x_points = np.array(list_line_comment)
+    y_points = np.array(list_non_empty)
+    plt.xlabel("LOC")
+    plt.ylabel("CLOC")
     plt.scatter(x_points, y_points)
     plt.savefig("comment_density.png")
 
